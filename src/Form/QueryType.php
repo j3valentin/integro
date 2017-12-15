@@ -13,12 +13,10 @@ class QueryType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        //die(print_r(array_merge(['' => null], Query::$TYPES)));
         $builder
             ->add('type', ChoiceType::class, [
                 'required' => false,
                 'empty_data' => null,
-                //'choices' => array_merge(['' => null], Query::$TYPES),
                 'choices' => Query::$TYPES,
             ])
         ;

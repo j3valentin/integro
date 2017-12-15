@@ -12,6 +12,7 @@ class Query
     ];
 
     /**
+     * @Assert\Choice(callback="getTypes")
      * @Assert\NotBlank()
      * @var string
      */
@@ -26,6 +27,8 @@ class Query
      * @var TestCase
      */
     private $testCase;
+
+    public static function getTypes() { return self::$TYPES; }
 
     public function getType() { return $this->type; }
 

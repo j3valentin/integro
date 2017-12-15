@@ -18,6 +18,7 @@ class CubeSummation
     private $nTestCases;
 
     /**
+     * @Assert\Valid()
      * @var TestCase[]|ArrayCollection
      */
     private $testCases;
@@ -38,7 +39,10 @@ class CubeSummation
     {
         $anws = [];
         foreach ($this->testCases as $testCase) {
-            $anws[] = $testCase->output();
+            $output = $testCase->output();
+            if (sizeof($output)) {
+                $anws[] = $output;
+            }
         }
         return $anws;
     }
