@@ -122,3 +122,6 @@ local.properties
 .scala_dependencies
 .worksheet
 
+nbproject/
+vendor/
+var/

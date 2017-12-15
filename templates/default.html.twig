@@ -1,0 +1,31 @@
+{# add this at the beginning of your template #}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{# this alternative theme is also available #}
+{#% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %#}
+
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <style>
+        fieldset:first-child{display:block}
+        div.form-group,div.form-group:first-child+fieldset{display:inline}
+    </style>
+{% endblock %}
+
+{% block title %}Cube Summation{% endblock %}
+
+{% block body %}
+{{ form_start(form) }}
+{{ form_widget(form) }}
+{{ form_end(form) }}
+{% endblock %}
+
+{% block javascripts %}
+    {% if anws | length > 0 %}
+    <script>
+        alert('{{ anws | json_encode }}');
+    </script>
+    {% endif %}
+{% endblock %}
+
